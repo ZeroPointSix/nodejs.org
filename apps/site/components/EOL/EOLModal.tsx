@@ -26,6 +26,7 @@ const EOLModal: FC<EOLModalProps> = ({
     ? t('components.eolModal.title', { version, codename })
     : t('components.eolModal.titleWithoutCodename', { version });
 
+  // eslint-disable-next-line @eslint-react/use-memo
   useMemo(
     () =>
       vulnerabilities.sort(
@@ -34,7 +35,7 @@ const EOLModal: FC<EOLModalProps> = ({
           SEVERITY_ORDER.indexOf(b.severity)
       ),
     // Only change when the vulnerabilities change
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line @eslint-react/exhaustive-deps
     [vulnerabilities.length]
   );
 
